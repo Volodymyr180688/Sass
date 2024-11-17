@@ -19,16 +19,12 @@
   }).observe(document, { childList: true, subtree: true });
   function getFetchOpts(link) {
     const fetchOpts = {};
-    if (link.integrity)
-      fetchOpts.integrity = link.integrity;
-    if (link.referrerPolicy)
-      fetchOpts.referrerPolicy = link.referrerPolicy;
+    if (link.integrity) fetchOpts.integrity = link.integrity;
+    if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
     if (link.crossOrigin === "use-credentials")
       fetchOpts.credentials = "include";
-    else if (link.crossOrigin === "anonymous")
-      fetchOpts.credentials = "omit";
-    else
-      fetchOpts.credentials = "same-origin";
+    else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
+    else fetchOpts.credentials = "same-origin";
     return fetchOpts;
   }
   function processPreload(link) {
@@ -39,4 +35,3 @@
     fetch(link.href, fetchOpts);
   }
 })();
-const style = "";
