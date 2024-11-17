@@ -1,8 +1,7 @@
 module.exports = {
   plugins: [
-    require("postcss-sort-media-queries")({
-      sort: "mobile-first", // default value
+    require("autoprefixer")({
+      overrideBrowserslist: ["> 1%", "last 2 versions", "IE 10"],
     }),
-    require("autoprefixer"),
   ],
 };
